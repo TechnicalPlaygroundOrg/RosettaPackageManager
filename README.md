@@ -1,4 +1,6 @@
-# LFS 13.0-systemd - Chapter 8 build scripts
+# Rosetta Package Build Scripts
+
+Using LFS 13.0 as the base
 
 One bash script per package, in build order, generated from the book HTML.
 
