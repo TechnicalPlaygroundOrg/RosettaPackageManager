@@ -96,3 +96,7 @@ https://www.linuxfromscratch.org/patches/lfs/13.0/glibc-fhs-1.patch
 https://www.linuxfromscratch.org/patches/lfs/13.0/kbd-2.9.0-backspace-1.patch
 https://www.linuxfromscratch.org/patches/lfs/13.0/sysvinit-3.14-consolidated-1.patch
 https://ftp.gnu.org/gnu/wget/wget2-2.2.1.tar.gz
+https://gitlab.com/-/project/2882658/uploads/54f6d239283bbdc75d4dbd732ced04e4/libidn2-2.3.4.tar.gz
+https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.xz
+https://github.com/rockdaboot/libpsl/releases/download/0.23.0/libpsl-0.23.0.tar.gz
+https://github.com/curl/curl/releases/download/curl-8_21_0/curl-8.21.0.tar.xz
