@@ -2,7 +2,7 @@
 #   a json file including them in a specific format.
 
 
-# URL reading cited from https://www.geeksforgeeks.org/python/how-to-download-files-from-urls-with-python/
+# URL reading cited from https://scrapfly.io/blog/posts/python-wget-guide
 # handling new tar file cited from https://www.geeksforgeeks.org/python/how-to-uncompress-a-tar-gz-file-using-python/
 import wget
 import tarfile
