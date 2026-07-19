@@ -9,7 +9,6 @@ import tarfile
 import os
 from time import sleep
 
-
 # get all urls
 f = open("package-sources")
 strings = f.readlines()
@@ -19,15 +18,12 @@ out.write('[\n')
 scripts = os.listdir('./')
 #os.mkdir('./tempfolder')
 index = 0
-for x in strings:
-    #if index != 0 :
-    #    out.write(',\n')
-    #else: 
-    #    out.write('\t{')
+for link in strings:
     try:
-        response = wget.download(x, bar=None)
+        print(f"Fetching Package associated with {link}")
+        response = wget.download(link)
     except wget.URLError:
-        print(x + " failed")
+        print(link + " failed")
 
     #print(response)
     #if response.status_code == 200:
@@ -44,17 +40,13 @@ for x in strings:
     index = 0
     while(scripts[index].find(info[0].replace('_','-')) == -1):
         index = index + 1
-    out.write('\t{\n\t\t\"name\": \"' + info[0] + '\",\n\t\t\"link\": \"' + x.split('\n')[0] + '\",\n\t\t\"version\": \"' + info[1] + '\",\n\t\t\"script\": \"' + scripts[index] + '\",\n\t\t\"deps\": []\n\t}')
+    out.write('\t{\n\t\t\"name\": \"' + info[0] + '\",\n\t\t\"link\": \"' + link.split('\n')[0] + '\",\n\t\t\"version\": \"' + info[1] + '\",\n\t\t\"script\": \"' + scripts[index] + '\",\n\t\t\"deps\": []\n\t}')
     os.remove(response)
     #else:
     #    print(x.split('\n')[0] + ' failed to open\ncode : ' + str(response.status_code))
     index = index + 1
 out.write(']\n')
 #os.rmdir('./tempfolder')
-
-
-
-
 
 
 #class pkg:
