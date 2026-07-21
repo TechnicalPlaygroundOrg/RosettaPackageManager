@@ -1,13 +1,14 @@
+#
+#   Owner: Ethan Richards
 #   json_writer.py is a prototype file writer which reads package sources and writes
 #   a json file including them in a specific format.
+#
 
-
-# URL reading cited from https://scrapfly.io/blog/posts/python-wget-guide
-# handling new tar file cited from https://www.geeksforgeeks.org/python/how-to-uncompress-a-tar-gz-file-using-python/
 import wget
 import tarfile
 import os
 from time import sleep
+import pdb
 
 
 # get all urls
@@ -19,15 +20,13 @@ out.write('[\n')
 scripts = os.listdir('./')
 #os.mkdir('./tempfolder')
 index = 0
-for x in strings:
-    #if index != 0 :
-    #    out.write(',\n')
-    #else: 
-    #    out.write('\t{')
-    try:
-        response = wget.download(x, bar=None)
-    except wget.URLError:
-        print(x + " failed")
+pdb.set_trace()
+
+for link in strings:
+   try:
+        response = wget.download(link, bar=None)
+   except wget.URLError:
+        print(link + " failed")
 
     #print(response)
     #if response.status_code == 200:
@@ -44,18 +43,12 @@ for x in strings:
     index = 0
     while(scripts[index].find(info[0].replace('_','-')) == -1):
         index = index + 1
-    out.write('\t{\n\t\t\"name\": \"' + info[0] + '\",\n\t\t\"link\": \"' + x.split('\n')[0] + '\",\n\t\t\"version\": \"' + info[1] + '\",\n\t\t\"script\": \"' + scripts[index] + '\",\n\t\t\"deps\": []\n\t}')
+    out.write('\t{\n\t\t\"name\": \"' + info[0] + '\",\n\t\t\"link\": \"' + link.split('\n')[0] + '\",\n\t\t\"version\": \"' + info[1] + '\",\n\t\t\"script\": \"' + scripts[index] + '\",\n\t\t\"deps\": []\n\t}')
     os.remove(response)
     #else:
     #    print(x.split('\n')[0] + ' failed to open\ncode : ' + str(response.status_code))
     index = index + 1
 out.write(']\n')
-#os.rmdir('./tempfolder')
-
-
-
-
-
 
 #class pkg:
 #    def __init__(self, name, version, link):
